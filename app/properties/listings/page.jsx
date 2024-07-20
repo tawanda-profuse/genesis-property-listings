@@ -1,10 +1,7 @@
 "use client";
 import PropertyCard from "@/app/(components)/PropertyCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faList,
-  faTableCells,
-} from "@fortawesome/free-solid-svg-icons";
+import { faList, faTableCells } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 export default function Listings() {
@@ -57,12 +54,19 @@ export default function Listings() {
   };
 
   return (
-    <main className="flex justify-between items-start py-[2rem] px-[4rem] gap-[2rem]">
-      <aside className="w-[30%] flex flex-col items-center gap-[2rem] px-[1rem] py-[2rem] border border-[#ccc] rounded-xl">
-        <select className="flex justify-between items-center border border-[#ccc] rounded-xl w-full p-[1rem] text-[#999] px-[1rem] cursor-pointer" onChange={(e) => handleFilterChange(e.target.value)}>
+    <main className="flex flex-col md:flex-row justify-between items-start py-[2rem] px-[4rem] gap-[2rem]">
+      <aside className="w-full md:w-[30%] flex flex-col items-center gap-[2rem] px-[1rem] py-[2rem] border border-[#ccc] rounded-xl">
+        <select
+          className="flex justify-between items-center border border-[#ccc] rounded-xl w-full p-[1rem] text-[#999] px-[1rem] cursor-pointer"
+          onChange={(e) => handleFilterChange(e.target.value)}
+        >
           <option selected>Property Types</option>
-          <option value="for-sale" selected={filter === "for-sale"}>For Sale</option>
-          <option value="to-rent" selected={filter === "to-rent"}>For Rent</option>
+          <option value="for-sale" selected={filter === "for-sale"}>
+            For Sale
+          </option>
+          <option value="to-rent" selected={filter === "to-rent"}>
+            For Rent
+          </option>
         </select>
         <input
           type="text"
@@ -94,7 +98,7 @@ export default function Listings() {
           />
         </span>
       </aside>
-      <section className="w-[80%]">
+      <section className="w-full md:w-[80%]">
         <div className="flex justify-between items-center bg-white py-[0.5rem] px-[1rem] mb-[2rem] rounded-lg border border-[#ccc]">
           <span>Sort by:</span>
           <span>{listings ? listings.length : 0} Search Results</span>
@@ -102,18 +106,26 @@ export default function Listings() {
             <button onClick={() => setView(false)}>
               <FontAwesomeIcon
                 icon={faList}
-                className={`text-red-600 border border-red-600 p-[0.8rem] rounded-md ${!view ? "bg-red-100" : ""}`}
+                className={`text-red-600 border border-red-600 p-[0.8rem] rounded-md ${
+                  !view ? "bg-red-100" : ""
+                }`}
               />
             </button>
             <button onClick={() => setView(true)}>
               <FontAwesomeIcon
                 icon={faTableCells}
-                className={`text-red-600 border border-red-600 p-[0.8rem] rounded-md ${view ? "bg-red-100" : ""}`}
+                className={`text-red-600 border border-red-600 p-[0.8rem] rounded-md ${
+                  view ? "bg-red-100" : ""
+                }`}
               />
             </button>
           </span>
         </div>
-        <div className={`grid grid-cols-${view ? "3" : "1"} gap-[1rem]`}>
+        <div
+          className={`grid grid-cols-1 md:grid-cols-3 ${
+            view ? "md:grid-cols-3" : "md:grid-cols-1"
+          } gap-[1rem]`}
+        >
           {loading &&
             new Array(3)
               .fill(null)

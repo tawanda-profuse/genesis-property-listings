@@ -136,7 +136,7 @@ const Dashboard = () => {
         </div>
       </section>
       <section className="py-[4rem]">
-        <div className="grid grid-cols-3 gap-[2rem] max-w-[90vw] m-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[2rem] max-w-[90vw] m-auto">
           <div className="border border-[#ccc] p-[1rem] flex flex-col gap-[1rem] items-center rounded-md">
             <FontAwesomeIcon
               icon={faHouseChimneyWindow}

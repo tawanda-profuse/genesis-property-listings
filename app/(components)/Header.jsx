@@ -5,15 +5,28 @@ import { useState } from "react";
 
 const Header = () => {
   const [propertyTypes, setPropertyTypes] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   return (
     <header className="w-full bg-[url(/header-image.jpg)] md:h-[50vh] flex flex-col items-center justify-center p-[2rem]">
-      <div className="flex flex-col items-start justify-center gap-[1rem] w-[60%]">
+      <div className="flex flex-col items-start justify-center gap-[1rem] w-full md:w-[60%]">
         <span className="flex items-center gap-[1rem] p-[0.5rem] rounded-3xl bg-white text-[#555]">
-          <button className="bg-red-600 text-white rounded-3xl py-[0.5rem] px-[1rem]">
+          <button
+            className={`${
+              selected ? "" : "bg-red-600 text-white"
+            }  rounded-3xl py-[0.5rem] px-[1rem]`}
+            onClick={() => setSelected(false)}
+          >
             For Sale
           </button>
-          <button className="rounded-3xl py-[0.5rem] px-[1rem]">To Rent</button>
+          <button
+            className={`${
+              selected ? "bg-red-600 text-white" : ""
+            } rounded-3xl py-[0.5rem] px-[1rem]`}
+            onClick={() => setSelected(true)}
+          >
+            To Rent
+          </button>
         </span>
         <div className="bg-white text-[#555] flex flex-col md:flex-row gap-[2rem] md:gap-0 justify-between items-center w-full p-[1rem] rounded-xl relative">
           <button
@@ -27,13 +40,13 @@ const Header = () => {
           <input
             type="text"
             placeholder="Suburb City, Province, Country"
-            className="p-[1rem] w-[50%] outline-none focus:border-b-black focus:border-b"
+            className="p-[1rem] w-full md:w-[50%] outline-none focus:border-b-black focus:border-b"
           />
           <button className="bg-red-600 p-[1rem] rounded-lg text-white">
             <FontAwesomeIcon icon={faSearch} /> Search
           </button>
           {propertyTypes && (
-            <div className="absolute flex flex-col gap-[2rem] p-[1rem] left-0 items-center bg-white translate-y-[30%] rounded-sm w-[30%] transition-all z-50 shadow-lg">
+            <div className="absolute flex flex-col gap-[2rem] p-[1rem] left-0 items-center bg-white translate-y-[30%] rounded-sm w-full md:w-[30%] transition-all z-50 shadow-lg">
               <h4 className="font-bold self-start">Commercial</h4>
               <span>Commercial</span>
               <span>Educational</span>

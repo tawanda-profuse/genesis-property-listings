@@ -8,9 +8,10 @@ const Header = () => {
   const [selected, setSelected] = useState(false);
 
   return (
-    <header className="w-full bg-[url(/header-image.jpg)] md:h-[50vh] flex flex-col items-center justify-center p-[2rem]">
+    <header className="relative w-full bg-[url(/header-image.jpg)] bg-center bg-no-repeat bg-cover md:h-[50vh] flex flex-col items-center justify-center p-[2rem]">
+      <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="flex flex-col items-start justify-center gap-[1rem] w-full md:w-[60%]">
-        <span className="flex items-center gap-[1rem] p-[0.5rem] rounded-3xl bg-white text-[#555]">
+        <span className="flex items-center gap-[1rem] p-[0.5rem] rounded-3xl bg-white text-[#555] z-50">
           <button
             className={`${
               selected ? "" : "bg-red-600 text-white"

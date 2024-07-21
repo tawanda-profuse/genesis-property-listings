@@ -46,7 +46,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faSearch} /> Search
           </button>
           {propertyTypes && (
-            <div className="absolute flex flex-col gap-[2rem] p-[1rem] left-0 items-center bg-white translate-y-[30%] rounded-sm w-full md:w-[30%] transition-all z-50 shadow-lg">
+            <div className="absolute flex flex-col gap-[2rem] p-[1rem] left-0 items-center bg-white translate-y-[70%] rounded-sm w-full md:w-[30%] transition-all z-50 shadow-lg">
               <h4 className="font-bold self-start">Commercial</h4>
               <span>Commercial</span>
               <span>Educational</span>

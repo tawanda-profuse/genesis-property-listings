@@ -37,7 +37,7 @@ const Navbar = () => {
         Login <FontAwesomeIcon icon={faCircleUser} className="text-[navy]" />
       </button>
       {openAuthOptions && (
-        <div className={`bg-page text-white absolute translate-y-[70%] transition-all w-[30vh] rounded-md right-0 flex flex-col items-start p-[1rem] gap-[2rem] ${openMenu ? "hidden" : "block"}`}>
+        <div className={`bg-page text-white absolute translate-y-[70%] transition-all w-[30vh] rounded-md right-0 flex flex-col items-start p-[1rem] gap-[2rem] z-[100] ${openMenu ? "hidden" : "block"}`}>
           <Link href="/">Signup</Link>
           <Link href="/">Login</Link>
         </div>
